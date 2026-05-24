@@ -1,5 +1,23 @@
 package com.example.labo3.domain.dto.request;
 
-public class UpdateSpecimenRequest {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class UpdateSpecimenRequest {
+    @NotBlank(message = "The specimen name cannot be empty.")
+    private String name;
+
+    @NotBlank(message = "The region of Hyrule must be specified.")
+    private String region;
+
+    @NotNull(message = "Danger level is required.")
+    private Integer dangerLevel;
+
+    @NotNull(message = "You must specify if the specimen is friendly.")
+    private Boolean isFriendly;
 }
